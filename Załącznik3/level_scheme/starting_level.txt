@@ -1,0 +1,12 @@
+ccccccccccccccccccccccccc
+c-----------------------c
+c-----------------------c
+c-----------------------c
+c-----------------------c
+cc--ccccccccccccccccccccc
+c-----------------------c
+c-----------------------c
+cccccccccccccccccccc--ccc
+c-----------------------c
+c-----------------------c
+ccccccccccccccccccccccccc

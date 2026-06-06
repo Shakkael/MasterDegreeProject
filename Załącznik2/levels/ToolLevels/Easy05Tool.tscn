@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cbuv4ibqiawou"]
+
+[ext_resource type="Script" uid="uid://c02mr2s3qs1bs" path="res://levels/ToolLevels/Scripts/ES02T.gd" id="1_7xdgt"]
+[ext_resource type="Script" uid="uid://c2cify4r5tyus" path="res://classes/UnlockButton.gd" id="2_ep80e"]
+
+[node name="Es02Tool" type="Panel" unique_id=1487533590]
+custom_minimum_size = Vector2(400, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_7xdgt")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=791831201]
+unique_name_in_owner = true
+use_threads = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=680231507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2097131381]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1070844577]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Podaj hasło"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Password" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=1792929067]
+layout_mode = 2
+placeholder_text = "Hasło"
+
+[node name="UnlockButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=386369425 node_paths=PackedStringArray("InputCheck")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "Odblokuj"
+script = ExtResource("2_ep80e")
+ButtonName = "Es2B"
+InputCheck = NodePath("../Password")
+ButtonSignal = "ES02"
+metadata/_custom_type_script = "uid://c2cify4r5tyus"
+
+[connection signal="unlockButton" from="MarginContainer/VBoxContainer/UnlockButton" to="." method="_on_unlock_button_unlock_button"]

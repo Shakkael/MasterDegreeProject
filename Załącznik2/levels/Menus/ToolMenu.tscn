@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://v2m66cgymxq0"]
+
+[ext_resource type="Script" uid="uid://dds1c62r4h4al" path="res://classes/ToolLevel.gd" id="1_uhv2b"]
+[ext_resource type="PackedScene" uid="uid://dx4j7p0nt8uog" path="res://levels/ToolLevels/NLvlTool.tscn" id="2_uhv2b"]
+[ext_resource type="PackedScene" uid="uid://bfss034k57xo4" path="res://levels/ToolLevels/NLvlGlass.tscn" id="3_s4a5q"]
+[ext_resource type="Texture2D" uid="uid://bkmdhgp4m2s06" path="res://arrow.png" id="4_8f7nq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uhv2b"]
+
+[sub_resource type="Gradient" id="Gradient_uhv2b"]
+offsets = PackedFloat32Array(0.11940298, 0.58208954)
+colors = PackedColorArray(0.15216, 0.15120001, 0.18, 1, 0.15300001, 0.15300001, 0.18, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s4a5q"]
+gradient = SubResource("Gradient_uhv2b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8f7nq"]
+texture = SubResource("GradientTexture1D_s4a5q")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i33fw"]
+bg_color = Color(0.1771, 0.18856168, 0.23, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qhto"]
+bg_color = Color(0.21460001, 0.37, 0.31302, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4a5q"]
+bg_color = Color(0.0432, 0.09312001, 0.12, 0.45882353)
+
+[sub_resource type="Animation" id="Animation_8f7nq"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Arrow3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i33fw"]
+resource_name = "rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Arrow3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, -0.27739242, 1, 1),
+"update": 0,
+"values": [0.0, 6.2831855, 0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qhto"]
+_data = {
+&"RESET": SubResource("Animation_8f7nq"),
+&"rotate": SubResource("Animation_i33fw")
+}
+
+[node name="Tool" type="Window" unique_id=1738976456]
+transparent_bg = true
+oversampling_override = 1.0
+initial_position = 4
+size = Vector2i(1300, 800)
+always_on_top = true
+transparent = true
+script = ExtResource("1_uhv2b")
+metadata/_custom_type_script = "uid://dds1c62r4h4al"
+
+[node name="ToolContainer" type="TabContainer" parent="." unique_id=1472622718]
+unique_name_in_owner = true
+top_level = true
+z_index = -3
+offset_right = 1366.0
+offset_bottom = 799.0
+size_flags_vertical = 3
+theme_override_constants/side_margin = 0
+theme_override_constants/tab_separation = 14
+theme_override_constants/icon_separation = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uhv2b")
+theme_override_styles/tabbar_background = SubResource("StyleBoxTexture_8f7nq")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_i33fw")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_6qhto")
+current_tab = 0
+clip_tabs = false
+tab_0/title = "    Panel    "
+tab_2/hidden = true
+
+[node name="Control" type="Panel" parent="ToolContainer" unique_id=419160563]
+unique_name_in_owner = true
+process_mode = 3
+process_priority = -1
+z_index = -1
+custom_minimum_size = Vector2(1366, 768)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s4a5q")
+metadata/_tab_index = 0
+metadata/_tab_name = "    Panel    "
+
+[node name="NLvlTool" parent="ToolContainer/Control" unique_id=1487533590 instance=ExtResource("2_uhv2b")]
+layout_mode = 1
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+
+[node name="Lupka" type="Control" parent="ToolContainer" unique_id=202464777]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 1
+
+[node name="NLvlGlass" parent="ToolContainer/Lupka" unique_id=1148166572 instance=ExtResource("3_s4a5q")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 533.0
+offset_top = 309.0
+offset_right = 833.0
+offset_bottom = 459.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="Gra" type="Control" parent="ToolContainer" unique_id=987813906]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Arrow0" type="Sprite2D" parent="ToolContainer/Gra" unique_id=1653700825]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(620, 320)
+texture = ExtResource("4_8f7nq")
+
+[node name="Arrow1" type="Sprite2D" parent="ToolContainer/Gra" unique_id=1129157107]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(620, 580)
+rotation = 3.1415927
+texture = ExtResource("4_8f7nq")
+
+[node name="Arrow2" type="Sprite2D" parent="ToolContainer/Gra" unique_id=1319515929]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(820, 520)
+rotation = 2.0943952
+texture = ExtResource("4_8f7nq")
+
+[node name="Arrow3" type="Sprite2D" parent="ToolContainer/Gra" unique_id=1383442552]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(444, 520)
+texture = ExtResource("4_8f7nq")
+
+[node name="Marker2D" type="Marker2D" parent="ToolContainer/Gra" unique_id=1808775]
+position = Vector2(352, 128)
+
+[node name="Rotate" type="AnimationPlayer" parent="ToolContainer/Gra" unique_id=696625006]
+libraries/ = SubResource("AnimationLibrary_6qhto")
+autoplay = &"rotate"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

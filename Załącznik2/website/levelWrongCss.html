@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrong CSS</title>
+    <link rel="stylesheet" href="hardx3.css">
+</head>
+<script src="levels.js"></script>
+<script>  
+    console.log("PSD3/4 - C9 - 90HBfpI3Sqm")
+    async function initialize() {
+         await unlockLevel(3, 2);
+         await loadSaveFile();
+    console.log(isLevelCompleted(3, 2));
+        if(isLevelCompleted(3, 2)) {
+            console.log("Level completed, enabling button.");
+            var nextLevelButton = document.getElementById('nextLevel');
+            nextLevelButton.disabled = false;
+        } else {
+            console.log("Level not completed, keeping button disabled.");
+        }
+    }
+    initialize();
+    function redeemCode() {
+        const code = document.getElementById('codeInput').value.trim();
+        if (code.toUpperCase() === "FQSCVPVAPPMAMSCS") {
+            alert("Kod poprawny!");
+            var disabledButton = document.getElementById('nextLevel');
+            disabledButton.disabled = false;
+        } else {
+            alert("Niepoprawny kod. Spróbuj ponownie.");
+        }
+    }
+    function buttonPressed() {
+        completeLevel(3, 2);
+        unlockLevel(3, 3);
+        loadSaveFile();
+        window.location.replace('fake_wrong.html');
+    }
+</script>
+<body>
+    <header>
+        <h1>Level Hard 03 - "Wrong CSS"</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Strona główna</a>
+        <a href="admin.html">Panel Admina</a>
+        <a href="tips.html">Podpowiedzi</a>
+    </nav>
+
+    <main>
+        <p>Wszystko, co Ci jest potrzebne, do znalezienia hasła, znajdziesz tutaj.</p>
+        <p class="hide">Jedynym problemem na tej stronie jest błędny css. Plik to hard03.css. Skoro udało Ci się tu dostać to dasz radę to naprawić!</p>
+        <p>Powodzenia</p>
+        <input type="text" id="codeInput" placeholder="What's the PSD?" style="width: 300px;">
+        <button onclick="redeemCode()">Zrealizuj kod</button>
+        <button id="nextLevel" disabled onclick="buttonPressed()">Poziom zaliczony</button>
+        <div id="password"></div>
+    </main>
+
+    <footer>
+        Kacper Piątek 2026 &copy; Praca magisterska.
+    </footer>
+</body>
+</html>

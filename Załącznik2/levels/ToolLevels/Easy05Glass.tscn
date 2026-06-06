@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://box0qqkiathpq"]
+
+[node name="Easy05Glass" type="Control" unique_id=794697858]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1165474007]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 197.0
+offset_right = 994.0
+offset_bottom = 508.0
+mouse_filter = 2
+text = "Hasło to:
+    _V _ G _ 5 3 7 _ I   _ _ K _ J _ P "
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b7gg0r7ks5qv5"]
+
+[ext_resource type="Texture2D" uid="uid://diu8vu1wn7cr2" path="res://textures/jumppad.png" id="1_dyk2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyk2y"]
+size = Vector2(32, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dyk2y"]
+radius = 14.0
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=645326030]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1032281598]
+texture_filter = 1
+texture = ExtResource("1_dyk2y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1601644755]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_dyk2y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=531705904]
+gravity_space_override = 3
+gravity_point_center = Vector2(0, -10)
+gravity_direction = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=643192184]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_dyk2y")

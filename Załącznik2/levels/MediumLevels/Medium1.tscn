@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://bxoc68tcejqen"]
+
+[ext_resource type="Script" uid="uid://c0cgeebmawdsj" path="res://levels/MediumLevels/Scripts/Medium1.gd" id="1_4jkca"]
+[ext_resource type="Script" uid="uid://c2cify4r5tyus" path="res://classes/UnlockButton.gd" id="2_0cdkd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0258"]
+
+[node name="Medium1" type="Control" unique_id=1838712674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4jkca")
+level_category = "Średnie"
+tip = "W plikach gry znajduje się folder level_files. Sprawdź co możesz w nim zrobić."
+puzzle_output = "Brakuje jednego obrazka? Co jest tam napisane?"
+metadata/_custom_type_script = "uid://gyl5mdgxulhm"
+
+[node name="Background" type="ColorRect" parent="." unique_id=1229286376]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.47058824, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1764462483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HiddenContainer" type="TabContainer" parent="MarginContainer" unique_id=1807201818]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o0258")
+current_tab = 0
+tabs_visible = false
+
+[node name="Level0Panel" type="Panel" parent="MarginContainer/HiddenContainer" unique_id=1962220270]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HiddenContainer/Level0Panel" unique_id=498310997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxOrder" type="VBoxContainer" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer" unique_id=2038651411]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TemplateDesc" type="RichTextLabel" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=1593895955]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Narzędzie na chwilę na bok. Skupmy się na hasłach na obrazkach."
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=1463735504]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder/HBoxContainer" unique_id=139596821]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Hasło to: Odblokuj"
+
+[node name="UnlockButton" type="Button" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder/HBoxContainer" unique_id=1814255877 node_paths=PackedStringArray("InputCheck", "ButtonToUnlock")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Odblokuj"
+script = ExtResource("2_0cdkd")
+InputCheck = NodePath("../LineEdit")
+Password = "B7IqYHsf"
+ButtonToUnlock = NodePath("../../MainButton")
+metadata/_custom_type_script = "uid://c2cify4r5tyus"
+
+[node name="MainButton" type="Button" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=481579200]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "POZIOM ZALICZONY"
+
+[node name="Control" type="MarginContainer" parent="." unique_id=1822502016]
+custom_minimum_size = Vector2(800, 482)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -450.0
+offset_right = 400.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="PicturePart1" type="TextureRect" parent="Control" unique_id=1628298347]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+
+[node name="PicturePart2" type="TextureRect" parent="Control" unique_id=878237414]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1426852467]
+wait_time = 2.0
+autostart = true
+
+[connection signal="pressed" from="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder/MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

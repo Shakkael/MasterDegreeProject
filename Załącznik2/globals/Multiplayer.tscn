@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d6im8pff8x2j"]
+
+[ext_resource type="Script" uid="uid://cc78adinjsq32" path="res://globals/Level.gd" id="1_nxx42"]
+
+[node name="Multiplayer" type="Node" unique_id=875574930]
+script = ExtResource("1_nxx42")

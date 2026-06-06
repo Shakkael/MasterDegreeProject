@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dedw3dlqwgx0w"]
+
+[ext_resource type="Script" uid="uid://fyfusiowptb" path="res://levels/ToolLevels/Scripts/ES02G.gd" id="1_m3w56"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3oiio"]
+
+[node name="Easy02Glass" type="Panel" unique_id=1508154892]
+custom_minimum_size = Vector2(300, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3oiio")
+script = ExtResource("1_m3w56")
+
+[node name="HiddenContainer" type="TabContainer" parent="." unique_id=124039373]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="HiddenContainer" unique_id=299876885]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 25
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HiddenContainer/MarginContainer" unique_id=19613510]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HiddenContainer/MarginContainer/VBoxContainer" unique_id=291212511]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Tutaj potem musisz wrócić i wykorzystać sztuczki z pierwszej kategorii."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HiddenContainer" unique_id=1825685362]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="Panel" parent="HiddenContainer/MarginContainer2" unique_id=2129159265]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HiddenContainer/MarginContainer2/VBoxContainer" unique_id=1749920974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=red]G[color=brown]R[color=maroon]A[color=hotpink]D[color=pink]I[color=white]E[color=gray]N[color=black]T"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1

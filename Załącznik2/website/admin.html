@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admina</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="levels.js"></script>
+    <script src="admin.js"></script>
+    <script>
+        // Funkcja która zwraca hasło do zakończenia kategorii Trudny jeśli zostaną wprowadzone poprawne dane.
+        // Poprawne dane to są odpowiednio połączone i odkodowane fragmenty ukryte na różnych stronach
+        function decode(code) {
+            if(code == ""){
+                console.warn("decode() function requires a sentence.");
+                console.warn("For decode() function a sentence should be a string. For example decode(\"Text\")");
+            }
+            if(code == "Dobra robota, gratulacje"){
+                console.log(
+                "Gratulacje. Szczerze podziwiam, że udało Ci się zajść tak daleko. Teraz przycisk 'Koniec kategorii' doda do listy",
+                "zaliczonych poziomów poziom Trudny 5. To znaczy, że oficjalnie kategoria Trudna została zakończona!"
+                );
+                var button = document.getElementById("levelBtn");
+                button.innerText = "KONIEC KATEGORII";
+                button.setAttribute("onclick", "completeLevel(3, 4); loadSaveFile();")
+            }
+        }
+        decode("")
+        unlockLevel(3, 0);
+        loadSaveFile();
+        console.log("PSD1/4 - C5 - A3Guh3t6NJW")
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1 style="float:left">Panel Admina</h1>
+        <button id="logout" onclick="logout()">logout</button>
+        <div style="clear:both;"></div>
+    </header>
+
+    <nav>
+        <a href="index.html">Strona główna</a>
+        <a href="admin.html" class="active">Panel Admina</a>
+        <a href="tips.html">Podpowiedzi</a>
+    </nav>
+    <center>
+        <p id="welcome">Witam na poziomie Hard.01</p>
+        <button id="levelBtn" onclick="completeLevel(3, 0); loadSaveFile();">Poziom zaliczony</button>
+    </center>
+
+    <main>
+        <table>
+            <tr>
+                <th>Poziomy odblokowane przez użytkownika</th>
+                <th>Poziomy ukończone przez użytkownika</th>
+            </tr>
+            <tr>
+                <td id="levelsUnlocked"></td>
+                <td id="levelsCompleted"></td>
+            </tr>
+        </table>
+
+        <div>
+            <a href="https://www.base64decode.org" target="_blank">Ściągawka</a> do zagadek.
+        </div>
+
+        </div>
+            <input type="text" id="codeInput" placeholder="V3Bpc3o6 IEhhc8WCb1N6eWZyb3dhbmU=" value="V3Bpc3o6 IEhhc8WCb1N6eWZyb3dhbmU=" style="width: 300px;">
+            <button onclick="redeemCode()">Zrealizuj kod</button>
+        </div>
+
+    </main>
+
+    
+    <footer>
+        Kacper Piątek 2026 &copy; Praca magisterska.
+    </footer>
+</body>
+</html>

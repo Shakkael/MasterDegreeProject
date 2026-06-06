@@ -1,0 +1,81 @@
+html, body, h1{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    top: 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2vh;
+    height: 10vh;
+}
+nav {
+    background-color: #444;
+    color: white;
+    padding: 1vh;
+    text-align: center;
+    height: 2vh;
+    display: flex;
+    justify-content: space-around;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    float: left;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+main {
+    background: linear-gradient(to bottom, #949494, #727272);
+    min-height: 74vh;
+    padding-top: 2vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+#mainContent {
+    width: min-content;
+    text-align: justify;
+}
+main #content {
+    background: linear-gradient(to top, #e4e4e4, #c2c2c2);
+    text-align: justify;
+}
+aside {
+    background: linear-gradient(to bottom, #e4e4e4, #c2c2c2);
+    border-left: 1px solid #333;
+    width: 24vw;
+    margin-top: -2vh;
+    padding: 2vh 3vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 72vh;
+}
+footer {
+    background-color: #333;
+    color: white;
+    bottom: 0;
+    height: 4vh;
+    width: 100%;
+    padding-top: 2vh;
+    text-align: center;
+}
+.panel {
+    background-color: #d4d4d4;
+    border: #333 solid 1px;
+    width: 54vw;
+    margin: 2vh 2vw;
+    padding: 2vh 3vw;
+    border-radius: 25px;
+}
+.empty_output {
+    color: #aaa;
+    text-decoration:line-through;
+}

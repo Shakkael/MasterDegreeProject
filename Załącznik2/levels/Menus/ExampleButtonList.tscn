@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bvps7sm86qyn3"]
+
+[ext_resource type="Script" uid="uid://x24p663jiuqo" path="res://levels/Menus/Scripts/ListButton.gd" id="1_jhkp7"]
+
+[node name="ButtonList" type="VBoxContainer" unique_id=408369633]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_jhkp7")
+
+[node name="Difficulty" type="Button" parent="." unique_id=782456124]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = " - POZIOMY TUTORIALOWE -"
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1162559887]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 20
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer" unique_id=745286618]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Level0" type="Button" parent="MarginContainer/ButtonsContainer" unique_id=647153969]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder"
+alignment = 0
+
+[node name="Level1" type="Button" parent="MarginContainer/ButtonsContainer" unique_id=744666483]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder"
+alignment = 0
+
+[node name="Level2" type="Button" parent="MarginContainer/ButtonsContainer" unique_id=1327405720]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder"
+alignment = 0
+
+[node name="Level3" type="Button" parent="MarginContainer/ButtonsContainer" unique_id=1857898309]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder"
+alignment = 0
+
+[node name="Level4" type="Button" parent="MarginContainer/ButtonsContainer" unique_id=1225759907]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder"
+alignment = 0
+
+[connection signal="toggled" from="Difficulty" to="." method="on_difficulty_toggled"]
+[connection signal="pressed" from="MarginContainer/ButtonsContainer/Level0" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="MarginContainer/ButtonsContainer/Level1" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="MarginContainer/ButtonsContainer/Level2" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="MarginContainer/ButtonsContainer/Level3" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="MarginContainer/ButtonsContainer/Level4" to="." method="_on_button_pressed" binds= [4]]

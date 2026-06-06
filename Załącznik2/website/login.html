@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    <a href="index.html">Strona główna</a>
+    
+    <header>
+        <h1>Login</h1>
+    </header>
+
+    <main>
+        <form id="loginForm" method="POST">
+            <label for="username">Username:
+            <input type="text" id="username" name="username" required></label>
+            <br>
+            <label for="password">Password:
+            <input type="password" id="password" name="password" required><br></label>
+            <input type="checkbox" required>
+            Ta strona używa cookies do zapamiętywania, że użytkownik się zalogował.
+            Nie są używane do śledzenia aktywności użytkowników
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+
+</body>
+</html>
+<script src="login.js"></script>

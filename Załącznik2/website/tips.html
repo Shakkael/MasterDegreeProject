@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podpowiedzi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="godot_sync.js" ></script>
+</head>
+<body>
+    <header>
+        <h1>Podpowiedzi</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Strona główna</a>
+        <a href="admin.html">Panel Admina</a>
+        <a href="tips.html" class="active">Podpowiedzi</a>
+    </nav>
+
+    <main>
+        <div id="mainContent">
+            <div id="content" class="panel">
+                <h2>Podpowiedzi do zagadek</h2>
+                <div>Obecnie grasz na poziomie: <p id="currentLevel">Szukam</p></div>
+            </div>
+
+            <div class="panel">
+                <h2>Wskazówki</h2>
+                <p id="puzzleTip"></p>
+                <button id="tipButton" disabled onclick="reveal()">Pokaż wskazówkę</button>
+            </div>
+        </div>
+    <aside>
+            <h1>Elementy zagadek</h1>
+
+            <h3>Dane do zagadki</h3>
+            <p id="puzzleOutput" class="empty_output">Brak danych do poziomu.</p>
+
+            <h3>Pole wpisywania</h3>
+            <div id="puzzleInput">
+                <input disabled type="text" id="userInput" class="user_inputs_list" placeholder="Niedostępne">
+                <button disabled class="user_inputs_list" onclick="checkAnswer()">Sprawdź</button>
+                <p id="answerFeedback"></p>
+            </div>
+
+            <h3>Plik do pobrania</h3>
+            <button disabled id="downloadBtn" onclick="window.location.href='http:\/\/127.0.0.1:8080/download'">
+                Pobierz
+            </button>
+            <h3>Zapis do ankiety</h3>
+            Poniżej możesz pobrać zapis log, o który poproszę Cię przy wypełnianiu ankiety.
+            Zawiera jedynie informacje o tym, które poziomy udało Ci się skończyć wraz z czasem wykonania ich.
+            Proszę nie zmieniaj zawartości. Zarówno ankieta jak i te logi są anonimowe.
+            <button onclick="window.location.href='http:\/\/127.0.0.1:8080/download_mlog'">
+                Pobierz zapis do ankiety.
+            </button>
+            Uzupełnij ankietę dopiero w momencie, w którym postanowisz zakończyć test. Uzupełnij ankietę tylko raz.
+
+            <button onclick="window.location.href='https:\/\/forms.gle/frnDFvKSpxJudNTf7'">
+                Ankieta
+            </button>
+
+
+    </aside>
+    </main>
+
+
+    <footer>
+        Kacper Piątek 2026 &copy; Praca magisterska. (p3:ThisProject)
+    </footer>
+
+</body>
+</html>

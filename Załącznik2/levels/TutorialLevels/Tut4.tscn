@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://csfs1jwv1322x"]
+
+[ext_resource type="Script" uid="uid://qfrvvrigodx6" path="res://levels/TutorialLevels/Scripts/LevelTut4.gd" id="1_xqnro"]
+[ext_resource type="Script" uid="uid://c2cify4r5tyus" path="res://classes/UnlockButton.gd" id="2_jyxip"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0258"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ae5aa"]
+
+[node name="Tutorial_4" type="Control" unique_id=1838712674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xqnro")
+level = 3
+tip = "Niektóre poziomy zawierają panele z wieloma oknami. Żeby przełączać się między oknami używaj klawisza \"X\"."
+subsite = "tip"
+puzzle_output = "\"X\"?"
+metadata/_custom_type_script = "uid://gyl5mdgxulhm"
+
+[node name="Background" type="ColorRect" parent="." unique_id=232212766]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.20392157, 0.3372549, 0.47058824, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1764462483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HiddenContainer" type="TabContainer" parent="MarginContainer" unique_id=1807201818]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o0258")
+current_tab = 0
+tabs_visible = false
+
+[node name="Level5Panel" type="Panel" parent="MarginContainer/HiddenContainer" unique_id=1962220270]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HiddenContainer/Level5Panel" unique_id=498310997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/HiddenContainer/Level5Panel/MarginContainer" unique_id=1621896614]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ae5aa")
+current_tab = 0
+tabs_visible = false
+
+[node name="TutorialDesc" type="RichTextLabel" parent="MarginContainer/HiddenContainer/Level5Panel/MarginContainer/TabContainer" unique_id=1593895955]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Łatwiejsze zagadki się kończą. Zaraz pora na nowy rozdział - wyższy poziom trudności zagadek.
+
+Ale jak na ten wyższy poziom dotrzeć? Najpierw musisz przejść do następnego poziomu. Nie wiesz jednak jeszcze jak to zrobić. Zamiast zgadywać możesz wrócić na stronę internetową do zakładki z podpowiedziami. Dla niektórych poziomów będą się tam znajdować dodatkowe informacje potrzebne do ich rozwiązania. Jeśli wsyzstkie informacje, jakie posiadasz, nie wystarczą Ci do rozwiązania zagadki, użyj klawisza przycisku \"Pokaż wskazówkę\". Staraj się używać podpowiedzi tylko w ostateczności, bo ma to znaczenie w moich badaniach. Teraz natomiast możesz śmiało nacisnąć przycisk, by sprawdzić jak działa."
+fit_content = true
+horizontal_alignment = 3
+metadata/_tab_index = 0
+
+[node name="VBoxOrder" type="VBoxContainer" parent="MarginContainer/HiddenContainer/Level5Panel/MarginContainer/TabContainer" unique_id=2038651411]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 24
+metadata/_tab_index = 1
+
+[node name="TutorialDesc2" type="RichTextLabel" parent="MarginContainer/HiddenContainer/Level5Panel/MarginContainer/TabContainer/VBoxOrder" unique_id=477021957]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Gratulacje!  Przejdź do ostatniego poziomu tutorialu."
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HiddenContainer/Level5Panel/MarginContainer/TabContainer/VBoxOrder" unique_id=1154637643]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="MainButton" type="Button" parent="MarginContainer/HiddenContainer/Level5Panel/MarginContainer/TabContainer/VBoxOrder" unique_id=481579200]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "POZIOM ZALICZONY"
+
+[node name="HiddenPanel" type="Panel" parent="MarginContainer/HiddenContainer" unique_id=1274646812]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HiddenContainer/HiddenPanel" unique_id=1359525681]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxOrder" type="VBoxContainer" parent="MarginContainer/HiddenContainer/HiddenPanel/MarginContainer" unique_id=1685628847]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TutorialDesc2" type="RichTextLabel" parent="MarginContainer/HiddenContainer/HiddenPanel/MarginContainer/VBoxOrder" unique_id=1603397859]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Dokładnie tak"
+fit_content = true
+
+[node name="Button" type="Button" parent="MarginContainer/HiddenContainer/HiddenPanel/MarginContainer/VBoxOrder" unique_id=1884944999 node_paths=PackedStringArray("ButtonToUnlock")]
+layout_mode = 2
+text = "Odblokuj"
+script = ExtResource("2_jyxip")
+ButtonToUnlock = NodePath("../../../../Level5Panel/MarginContainer/TabContainer/VBoxOrder/MainButton")
+metadata/_custom_type_script = "uid://c2cify4r5tyus"
+
+[connection signal="pressed" from="MarginContainer/HiddenContainer/Level5Panel/MarginContainer/TabContainer/VBoxOrder/MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="unlockButton" from="MarginContainer/HiddenContainer/HiddenPanel/MarginContainer/VBoxOrder/Button" to="." method="_on_button_unlock_button"]

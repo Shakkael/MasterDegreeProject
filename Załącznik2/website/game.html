@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game.html</title>
+</head>
+<script>
+    var intervalId = setInterval(() => {
+        const response = fetch("http://127.0.0.1:8080/game_api").then(
+            response => response.json()
+        ).then(
+            data => {
+            var playerDiv = document.getElementById("player");
+            var positionDiv = document.getElementById("position");
+            var relativeDiv = document.getElementById("relative");
+            playerDiv.innerText = "Pozycja gracza to: " + data.player;
+            positionDiv.innerText = "Pozycja punktu to: " + data.position;
+        }
+    )}, 100
+    )
+</script>
+<body>
+    <div id="player"></div>
+    <div id="position"></div>
+</body>
+</html>

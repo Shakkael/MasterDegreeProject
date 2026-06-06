@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cx10rc1gvg6g3"]
+
+[ext_resource type="Script" uid="uid://dhwh340xaolwm" path="res://levels/EasyLevels/Scripts/Easy3.gd" id="1_1dajd"]
+[ext_resource type="Texture2D" uid="uid://cvvvie13grn2m" path="res://levels/EasyLevels/Images/Easy3Pic1.png" id="2_rrjby"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0258"]
+
+[node name="Easy3" type="Control" unique_id=1838712674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1dajd")
+level = 2
+level_category = "Łatwe"
+glass_name = "Easy03Glass.tscn"
+puzzle_output = "Co jeszcze narzędzie ma do zaoferowania?"
+puzzle_input = true
+submit_password = "893HA"
+metadata/_custom_type_script = "uid://gyl5mdgxulhm"
+
+[node name="Background" type="ColorRect" parent="." unique_id=1396601446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.47058824, 0.27058825, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1764462483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HiddenContainer" type="TabContainer" parent="MarginContainer" unique_id=1807201818]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o0258")
+current_tab = 0
+tabs_visible = false
+
+[node name="Level0Panel" type="Panel" parent="MarginContainer/HiddenContainer" unique_id=1962220270]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HiddenContainer/Level0Panel" unique_id=498310997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxOrder" type="VBoxContainer" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer" unique_id=2038651411]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TemplateDesc" type="RichTextLabel" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=1593895955]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Poniżej masz hasło. Wpisz je do przeglądarki!"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=1154637643]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="MainButton" type="Button" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=481579200]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "POZIOM ZALICZONY"
+
+[node name="HiddenPanel" type="Panel" parent="MarginContainer/HiddenContainer" unique_id=1274646812]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1312009307]
+top_level = true
+layout_mode = 0
+offset_left = 400.0
+offset_top = 239.0
+offset_right = 1000.0
+offset_bottom = 539.0
+texture = ExtResource("2_rrjby")
+
+[connection signal="pressed" from="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder/MainButton" to="." method="_on_main_button_pressed"]

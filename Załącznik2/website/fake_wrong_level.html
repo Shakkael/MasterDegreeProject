@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Level</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<script src="levels.js"></script>
+<script>
+    console.log("Decode([...]SGdJHYbKB==) 4/4;C11")
+    console.log("Wszystko badajcie, a co szlachetne — zachowujcie.")
+    function checkAnswer() {
+        var book = document.getElementById("bible_book").value;
+        var chapter = document.getElementById("bible_chapter").value;
+        var line = document.getElementById("bible_line").value;
+        console.log(book, chapter, line);
+        if(book == "dn" && chapter == 5 && line == 25){
+            var nextLevelBtn = document.getElementById("nextLevel");
+            nextLevelBtn.disabled = false;
+        }else if(book == "tes" && chapter == 5 && line == 21) {
+            window.location.replace('download_game');
+        }
+    }
+    async function buttonPressed(){
+        await completeLevel(3, 3);
+        await unlockLevel(3, 4);
+        await loadSaveFile();
+        window.location.replace('admin.html');
+    }
+</script>
+<body>
+    Nie za łatwo?
+    <div class="rlyhidden">
+        Za łatwo Ci idzie.
+        Jesteś już na czwartym poziomie czwartej kategorii.<br>
+        Nie mam zamiaru sprawiac, żeby było Ci jeszcze łatwiej. <br>
+        Myślałem, że jeśli nie będę dawał Ci żadnych podpowiedzi, to się w końcu poddasz. <br>
+        Chcesz przejść całą grę? No dobrze. To Twój problem. <br>
+        <i>Mam nadzieję, że wierzysz, bo tylko wiara Ci może pomóc.</i>
+        <input class="rlyhidden" type="text" value="Mene, mene, tekel ufarsin">
+        <br>
+        Pxnjlf
+        <select class="select_hidden" name="bible" id="bible_book">
+            <option value=""></option>
+            <option value="">Stare książki</option>
+            <option value="rdz">Rodzaj</option>
+            <option value="wj">Wyjście</option>
+            <option value="lb">Liczebnik</option>
+            <option value="dn">Daniel</option>
+            <option value="">Nowe książki</option>
+            <option value="dz">Dzieje</option>
+            <option value="kor">1 Korki</option>
+            <option value="kor2">2 Korki</option>
+            <option value="tes">1 Teserakt</option>
+            <option value="tes2">2 Teserakt</option>
+            <option value="jk">JK</option>
+        </select>
+        Wteienfq
+        <input class="rlyhidden" id="bible_chapter" type="number" value = "0">
+        Eifsnj
+        <input class="rlyhidden" id="bible_line" type="number" value = "25">
+        <button class="rlyhidden" onclick="checkAnswer()">Przejdź dalej</button>
+        <br>
+        <br>
+        <button id="nextLevel" disabled onclick="buttonPressed()">Poziom zaliczony</button>
+    </div>
+</body>
+</html>

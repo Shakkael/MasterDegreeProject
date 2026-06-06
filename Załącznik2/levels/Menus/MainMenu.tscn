@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b2tss8m0l062w"]
+
+[ext_resource type="Script" uid="uid://bjprr6iu7fr08" path="res://levels/Menus/Scripts/MainMenu.gd" id="1_57yct"]
+
+[node name="MainMenu" type="Control" unique_id=1826476688]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_57yct")
+
+[node name="Background" type="ColorRect" parent="." unique_id=705489355]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24, 0.48, 0.31599998, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=845636837]
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = -200.0
+offset_right = 624.0
+offset_bottom = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer" unique_id=1923979562]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Magisterka. Wpływ znajomości z grami video na umiejętność rozwiązywania zagadek łamiących czwartą ścianę."
+fit_content = true
+
+[node name="Separator2" type="Control" parent="VBoxContainer" unique_id=604459870]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Test" type="Button" parent="VBoxContainer" unique_id=1267192270]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+custom_maximum_size = Vector2(216, -1)
+layout_mode = 2
+text = "Idź do Testu"
+alignment = 0
+
+[node name="Website" type="Button" parent="VBoxContainer" unique_id=1755828157]
+custom_minimum_size = Vector2(0, 48)
+custom_maximum_size = Vector2(216, -1)
+layout_mode = 2
+text = "Uruchom stronę"
+alignment = 0
+
+[node name="Tool" type="Button" parent="VBoxContainer" unique_id=1632903919]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+custom_maximum_size = Vector2(216, -1)
+layout_mode = 2
+text = "Narzędzie"
+alignment = 0
+
+[node name="Separator" type="Control" parent="VBoxContainer" unique_id=790231608]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=2008117332]
+custom_minimum_size = Vector2(0, 48)
+custom_maximum_size = Vector2(216, -1)
+layout_mode = 2
+text = "Wyjdź z programu"
+alignment = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=973456566]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -486.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Wskazówka: Lepiej jeśli będziesz używać wersji z -console."
+fit_content = true
+
+[connection signal="pressed" from="VBoxContainer/Test" to="." method="_on_test_pressed"]
+[connection signal="pressed" from="VBoxContainer/Website" to="." method="_on_website_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tool" to="." method="_on_tool_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

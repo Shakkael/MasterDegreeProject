@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://by6lud0u7jf4g"]
+
+[ext_resource type="Script" uid="uid://u1ivo45nt8t" path="res://levels/EasyLevels/Scripts/Easy1.gd" id="1_36vuw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0258"]
+
+[node name="Easy1" type="Control" unique_id=1838712674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36vuw")
+level_category = "Łatwe"
+tip = "W menu głównym znajduje się przycisk \"Narzędzie\". Włącz narzędzie i uruchom poziom jeszcze raz. Zobaczysz, że narzędzie zmienia swoją zawartość w zależności od tego, na jakim poziomie się znajdujesz."
+signal_unlock = "ES01"
+tool_name = "Easy01Tool.tscn"
+puzzle_output = "Wróć do MainMenu. Co jeszcze było nieużywane?"
+metadata/_custom_type_script = "uid://gyl5mdgxulhm"
+
+[node name="Background" type="ColorRect" parent="." unique_id=1396601446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.47058824, 0.27058825, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1764462483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HiddenContainer" type="TabContainer" parent="MarginContainer" unique_id=1807201818]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o0258")
+current_tab = 0
+tabs_visible = false
+
+[node name="Level0Panel" type="Panel" parent="MarginContainer/HiddenContainer" unique_id=1962220270]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HiddenContainer/Level0Panel" unique_id=498310997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxOrder" type="VBoxContainer" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer" unique_id=2038651411]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TemplateDesc" type="RichTextLabel" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=1593895955]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Udało Ci się przejść do nowej kategorii. W każdej kolejnej kategorii pojawiać się będą nowe sposoby na rozwiązywanie zagadek. Na wyższych poziomach będzie też trzeba łączyć nowe sztuczki ze starymi. Pamiętaj, Twoim ostatecznym celem w tej grze jest znaleźć i nacisnąć przycisk \"KONIEC TESTU\".
+Narazie znów masz proste zadanie: wcisnąć przycisk \"Poziom zaliczony\". Ale przycisk jest zablokowany a nie ma przycisku do odblokowywania w tym oknie!
+Co możesz zrobić? Może masz jakieś narzędzia, które Ci pomogą?"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=1154637643]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="MainButton" type="Button" parent="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder" unique_id=481579200]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "POZIOM ZALICZONY"
+
+[node name="HiddenPanel" type="Panel" parent="MarginContainer/HiddenContainer" unique_id=1274646812]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[connection signal="pressed" from="MarginContainer/HiddenContainer/Level0Panel/MarginContainer/VBoxOrder/MainButton" to="." method="_on_main_button_pressed"]

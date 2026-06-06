@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://ba6srwcotsdk8"]
+
+[ext_resource type="Script" uid="uid://ch80pd5lwo0m3" path="res://levels/MediumLevels/Scripts/Medium2.gd" id="1_j1613"]
+[ext_resource type="Script" uid="uid://c2cify4r5tyus" path="res://classes/UnlockButton.gd" id="2_a4ro7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0258"]
+
+[node name="Medium2" type="Control" unique_id=1838712674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j1613")
+level = 1
+level_category = "Średnie"
+tip = "Hasło podane na nagraniu to \"dwa słowa\""
+puzzle_output = "Posłuchaj nagrania"
+metadata/_custom_type_script = "uid://gyl5mdgxulhm"
+
+[node name="Background" type="ColorRect" parent="." unique_id=1229286376]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.47058824, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1764462483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HiddenContainer" type="TabContainer" parent="MarginContainer" unique_id=1807201818]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o0258")
+current_tab = 0
+tabs_visible = false
+
+[node name="Level2Panel" type="Panel" parent="MarginContainer/HiddenContainer" unique_id=1962220270]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HiddenContainer/Level2Panel" unique_id=498310997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxOrder" type="VBoxContainer" parent="MarginContainer/HiddenContainer/Level2Panel/MarginContainer" unique_id=2038651411]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TemplateDesc" type="RichTextLabel" parent="MarginContainer/HiddenContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=1593895955]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Tu powinno znajdować się nagranie Med2.mp3 - kliknij i sprawdź, czy działa."
+fit_content = true
+
+[node name="SoundsButton" type="Button" parent="MarginContainer/HiddenContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=329342149]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Włącz nagranie"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HiddenContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=1463735504]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/HiddenContainer/Level2Panel/MarginContainer/VBoxOrder/HBoxContainer" unique_id=139596821]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Odsłuchaj nagranie"
+
+[node name="UnlockButton" type="Button" parent="MarginContainer/HiddenContainer/Level2Panel/MarginContainer/VBoxOrder/HBoxContainer" unique_id=1814255877 node_paths=PackedStringArray("InputCheck", "ButtonToUnlock")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Odblokuj"
+script = ExtResource("2_a4ro7")
+InputCheck = NodePath("../LineEdit")
+Password = "dwa słowa"
+ButtonToUnlock = NodePath("../../MainButton")
+metadata/_custom_type_script = "uid://c2cify4r5tyus"
+
+[node name="MainButton" type="Button" parent="MarginContainer/HiddenContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=481579200]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "POZIOM ZALICZONY"
+
+[node name="Rec1" type="AudioStreamPlayer2D" parent="." unique_id=522594154]
+unique_name_in_owner = true
+volume_db = 15.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=148298814]
+current = true
+
+[connection signal="pressed" from="MarginContainer/HiddenContainer/Level2Panel/MarginContainer/VBoxOrder/SoundsButton" to="." method="_on_sounds_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HiddenContainer/Level2Panel/MarginContainer/VBoxOrder/MainButton" to="." method="_on_main_button_pressed"]

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bkcbtlg24hoqa"]
+
+[ext_resource type="Script" uid="uid://c2cify4r5tyus" path="res://classes/UnlockButton.gd" id="1_5joki"]
+
+[node name="Es01Tool" type="Panel" unique_id=1487533590]
+custom_minimum_size = Vector2(200, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=791831201]
+unique_name_in_owner = true
+use_threads = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2097131381]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -15.5
+offset_right = 39.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="UnlockButton" type="Button" parent="VBoxContainer" unique_id=386369425]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Odblokuj"
+script = ExtResource("1_5joki")
+ButtonSignal = "ES01"
+metadata/_custom_type_script = "uid://c2cify4r5tyus"

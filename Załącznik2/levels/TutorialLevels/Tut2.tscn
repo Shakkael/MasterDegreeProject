@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://blkva6lduncp5"]
+
+[ext_resource type="Script" uid="uid://bl6bmke5fjgl8" path="res://levels/TutorialLevels/Scripts/LevelTut2.gd" id="1_njjrs"]
+[ext_resource type="Script" uid="uid://c2cify4r5tyus" path="res://classes/UnlockButton.gd" id="2_njjrs"]
+
+[node name="Tutorial_2" type="Control" unique_id=1838712674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_njjrs")
+level = 1
+tip = "Tutaj również - wszystko, co musisz wiedzieć, jest napisane na panelu w oknie gry."
+metadata/_custom_type_script = "uid://gyl5mdgxulhm"
+
+[node name="Background" type="ColorRect" parent="." unique_id=750025424]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.20392157, 0.3372549, 0.47058824, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1764462483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Level2Panel" type="Panel" parent="MarginContainer" unique_id=1962220270]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Level2Panel" unique_id=498310997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxOrder" type="VBoxContainer" parent="MarginContainer/Level2Panel/MarginContainer" unique_id=2038651411]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TutorialDesc" type="RichTextLabel" parent="MarginContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=1593895955]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Na niektórych poziomach, żeby odblokować przycisk, trzeba najpierw wpisać hasło. Po wpisaniu musisz wcisnąć przycisk \"Odblokuj\".
+
+Po każdej próbie przycisk zostaje zablokowany na 3 sekundy, po czym zacznie być używalny ponownie. Masz nieskończoną ilość prób."
+fit_content = true
+
+[node name="TutorialDesc2" type="RichTextLabel" parent="MarginContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=1155549894]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[color=salmon](Hasło to też \"Odblokuj\")"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=1469997857]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/Level2Panel/MarginContainer/VBoxOrder/HBoxContainer" unique_id=588138463]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Hasło to: Odblokuj"
+
+[node name="UnlockButton" type="Button" parent="MarginContainer/Level2Panel/MarginContainer/VBoxOrder/HBoxContainer" unique_id=1880545864 node_paths=PackedStringArray("TipNode", "InputCheck", "ButtonToUnlock")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Odblokuj"
+script = ExtResource("2_njjrs")
+TipNode = NodePath("../../TutorialDesc2")
+InputCheck = NodePath("../LineEdit")
+ButtonToUnlock = NodePath("../../MainButton")
+metadata/_custom_type_script = "uid://c2cify4r5tyus"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=767304843]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="MainButton" type="Button" parent="MarginContainer/Level2Panel/MarginContainer/VBoxOrder" unique_id=481579200]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "POZIOM ZALICZONY"
+
+[connection signal="pressed" from="MarginContainer/Level2Panel/MarginContainer/VBoxOrder/MainButton" to="." method="_on_main_button_pressed"]

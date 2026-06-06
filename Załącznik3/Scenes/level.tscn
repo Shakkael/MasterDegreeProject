@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://ciu43i7kjeb3h"]
+
+[ext_resource type="Script" uid="uid://duuy3ep3k4oau" path="res://Scripts/level.gd" id="1_wqkje"]
+[ext_resource type="Texture2D" uid="uid://cnxs11ublg0yl" path="res://textures/crate.png" id="2_0f350"]
+[ext_resource type="Script" uid="uid://df5asge30go4l" path="res://Scripts/tile_map_layer.gd" id="3_8c0lf"]
+[ext_resource type="PackedScene" uid="uid://b31taj42uxyu7" path="res://Scenes/player.tscn" id="4_754fn"]
+[ext_resource type="PackedScene" uid="uid://bqnmmuuwxs1y1" path="res://Scenes/point.tscn" id="5_bvt00"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqkje"]
+bg_color = Color(0.11, 0.11, 0.11, 0.8745098)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oi3di"]
+texture = ExtResource("2_0f350")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_u52ul"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_oi3di")
+
+[node name="Level" type="Control" unique_id=1281825714]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wqkje")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=783055140]
+
+[node name="Connetion" type="RichTextLabel" parent="CanvasLayer" unique_id=1213875148]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "Can't connect to server"
+fit_content = true
+
+[node name="Popup" type="Control" parent="CanvasLayer" unique_id=1014567885]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+z_index = 99
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Popup" unique_id=779996955]
+custom_minimum_size = Vector2(300, 220)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -110.0
+offset_right = 150.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wqkje")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Popup/Panel" unique_id=40280466]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Popup/Panel/MarginContainer" unique_id=1065757403]
+layout_mode = 2
+
+[node name="PointPrompt" type="RichTextLabel" parent="CanvasLayer/Popup/Panel/MarginContainer/VBoxContainer" unique_id=1883278292]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/Popup/Panel/MarginContainer/VBoxContainer" unique_id=1753495145]
+layout_mode = 2
+text = "Poziom Zaliczony"
+
+[node name="Timer" type="Timer" parent="." unique_id=1906804076]
+wait_time = 0.2
+autostart = true
+
+[node name="Map" type="TileMapLayer" parent="." unique_id=646578538]
+unique_name_in_owner = true
+texture_filter = 3
+tile_set = SubResource("TileSet_u52ul")
+script = ExtResource("3_8c0lf")
+
+[node name="Player" parent="." unique_id=734656963 instance=ExtResource("4_754fn")]
+unique_name_in_owner = true
+process_mode = 1
+position = Vector2(0, -75)
+
+[node name="Camera2D" parent="Player" index="2" unique_id=740649094]
+editor_draw_drag_margin = true
+
+[node name="Point" parent="." unique_id=494008138 instance=ExtResource("5_bvt00")]
+position = Vector2(352, 128)
+
+[node name="Point1" parent="." unique_id=1976515181 instance=ExtResource("5_bvt00")]
+position = Vector2(0, 256)
+star_id = 1
+
+[node name="Point2" parent="." unique_id=1782715737 instance=ExtResource("5_bvt00")]
+unique_name_in_owner = true
+position = Vector2(0, -800)
+star_id = 2
+
+[node name="Point3" parent="." unique_id=155761567 instance=ExtResource("5_bvt00")]
+visible = false
+position = Vector2(-272, -688)
+star_id = 3
+
+[connection signal="pressed" from="CanvasLayer/Popup/Panel/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="touched" from="Point" to="." method="star_achieved"]
+[connection signal="touched" from="Point1" to="." method="star_achieved"]
+[connection signal="touched" from="Point2" to="." method="star_achieved"]
+[connection signal="touched" from="Point3" to="." method="star_achieved"]
+
+[editable path="Player"]

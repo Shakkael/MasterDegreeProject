@@ -1,0 +1,2 @@
+Tutaj trzeba umieścić plik ukrytej gry po wyeksportowaniu jej do .zip o nazwie Game.zip
+Project > Export > Export Project

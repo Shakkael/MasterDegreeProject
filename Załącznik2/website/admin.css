@@ -1,0 +1,99 @@
+html, body {
+    margin: 0;
+    font-family: consolas;
+    background-color: black;
+    color: lawngreen;
+}
+#logout {
+    padding: 10px 20px;
+    float: right;
+}
+a {
+    color: yellow;
+}
+
+div {
+    margin-top: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    border-top: lawngreen 1px solid;
+    color: lawngreen;
+    text-align: center;
+    padding: 10px 0;
+}
+
+header, nav, main {
+    padding: 10px 20px;
+}
+
+nav {
+    border-bottom: 1px solid lawngreen;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid lawngreen;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    color: cyan;
+}
+input {
+    margin-top: 10px;
+    background-color: transparent;
+    border: 1px solid lawngreen;
+    color: lawngreen;
+    padding: 5px;
+}
+input::placeholder {
+    color: rgba(124, 252, 0, 0.5);
+}
+button {
+    background-color: transparent;
+    border: 1px solid lawngreen;
+    color: lawngreen;
+    padding: 5px 10px;
+    margin: 5px 50px 0 0;
+    cursor: pointer;
+}
+button:disabled {
+    color: gray;
+    border-color: gray;
+    cursor: not-allowed;
+}
+#welcome{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: red;
+}
+.hidden{
+    color: rgb(30, 30, 30);
+}
+button.rlyhidden, .rlyhidden{
+    color: black;
+    border: 0;
+    cursor:context-menu;
+}
+.rlyhidden::placeholder{
+    color: black;
+}
+.select_hidden {
+    appearance: none;
+    background-color: black;
+    color: white;
+    border: 0;
+}

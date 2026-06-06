@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hard 02</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<script src="levels.js"></script>
+<script>    
+    console.log("PSD2/4 - C7 - cFuQoPOQcFt")
+
+    async function initialize() {
+         await unlockLevel(3, 1);
+         await loadSaveFile();
+    console.log(isLevelCompleted(3, 1));
+        if(isLevelCompleted(3, 1)) {
+            console.log("Level completed, enabling button.");
+            var nextLevelButton = document.getElementById('nextLevel');
+            nextLevelButton.disabled = false;
+        } else {
+            console.log("Level not completed, keeping button disabled.");
+        }
+    }
+    initialize();
+
+    function redeemCode() {
+        const code = document.getElementById('codeInput').value.trim();
+        if (code.toLowerCase() === "ahr") {
+            alert("Kod poprawny!");
+            var disabledButton = document.getElementById('nextLevel');
+            disabledButton.disabled = false;
+        } else if (code.toLowerCase() === "tak") {
+            alert("Upl yvgbtplt");
+        } else {
+            alert("Niepoprawny kod. Spróbuj ponownie.");
+        }
+    }
+    
+    function buttonPressed() {
+        completeLevel(3, 1);
+        unlockLevel(3, 2);
+        loadSaveFile();
+        window.location.replace('WrongCSS.html');
+    }
+</script>
+<body>
+    
+    <header>
+        <h1>Level Hard 02 - "All Selection"</h1>
+        <button id="nextLevel" disabled onclick="buttonPressed()">Poziom zaliczony</button>
+
+    </header>
+
+    <nav>
+        <a href="index.html">Strona główna</a>
+        <a href="admin.html">Panel Admina</a>
+        <a href="tips.html">Podpowiedzi</a>
+    </nav>
+
+    <div class="hidden">Cezar7</div>
+
+    <main>
+        Dpahq d rhalnvypp ghhdhuzvdhulq.
+        Qbg thzg gh zvih wvgpvt wplydzgf alq rhalnvypp - whuls hktpuh.
+        Alyhg wvyh uh wvgpvt kybnp.<br>
+        Jlslt alnv wvgpvtb qlza wvrhghupl, gl tvnh Jpl zwvarhj zgfmyf.
+        Afsrv jgf khzg yhkl dzgfzarv vkzgfmyvdhj?<br><br>
+        W.Z.<br>
+        Qlzsp bkhsv Jp zpl vkzgfmyvdhj alu alrza gnhkbqhj, av ghbdhg, gl rsbjg qlza bryfaf wvdfglq alnv alrzab.
+        Zjovdhslt nv bgfdhqhj slkdv dpkvjgulq jgjpvurp.
+        <br>Tvgl Jp zpl ah dplkgh wygfkhj ;).
+
+        <input type="text" id="codeInput" placeholder="Vkwvdplkg: Jgf jojlzg wyglqść khslq?" value="Vkwvdplkg: Jgf jojlzg wyglqść khslq?" style="width: 300px;">
+        <button onclick="redeemCode()">Zrealizuj kod</button>
+
+    </main>
+
+    <footer>
+        Kacper Piątek 2026 &copy; Praca magisterska.
+    </footer>
+
+</body>
+</html>

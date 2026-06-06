@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://b6xvx72q3ftxg"]
+
+[ext_resource type="Script" uid="uid://cl1oo3wjvp2c1" path="res://levels/Menus/Scripts/LevelsMenu.gd" id="1_8qe3y"]
+[ext_resource type="PackedScene" uid="uid://bvps7sm86qyn3" path="res://levels/Menus/ExampleButtonList.tscn" id="1_yv5pp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rqw3"]
+bg_color = Color(0.5254902, 0.6, 0.6, 0.3529412)
+
+[node name="LevelsMenu" type="Control" unique_id=538241792]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qe3y")
+
+[node name="LevelSelection" type="MarginContainer" parent="." unique_id=422863821]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="OrderVBox" type="VBoxContainer" parent="LevelSelection" unique_id=1205882179]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ChoiceTitle" type="RichTextLabel" parent="LevelSelection/OrderVBox" unique_id=1694970127]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Wybór etapu"
+fit_content = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LevelSelection/OrderVBox" unique_id=1616085759]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rqw3")
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelSelection/OrderVBox/ScrollContainer" unique_id=41079514]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = -8
+
+[node name="LevelsVBox" type="VBoxContainer" parent="LevelSelection/OrderVBox/ScrollContainer/MarginContainer" unique_id=555103221]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cat0" parent="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox" unique_id=2019657553 instance=ExtResource("1_yv5pp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Cat1" parent="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox" unique_id=409471793 instance=ExtResource("1_yv5pp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+level_category = 1
+
+[node name="Cat2" parent="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox" unique_id=1558926551 instance=ExtResource("1_yv5pp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+level_category = 2
+
+[node name="Cat3" parent="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox" unique_id=711917455 instance=ExtResource("1_yv5pp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+level_category = 3
+
+[node name="Cat4" parent="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox" unique_id=408369633 instance=ExtResource("1_yv5pp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+level_category = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelection/OrderVBox" unique_id=74349624]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Quit" type="Button" parent="LevelSelection/OrderVBox/HBoxContainer" unique_id=1526209621]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Powrót do menu"
+alignment = 0
+
+[node name="Hide" type="Button" parent="LevelSelection/OrderVBox/HBoxContainer" unique_id=1639982491]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Schowaj"
+alignment = 0
+
+[connection signal="go_to_level" from="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox/Cat0" to="." method="_go_to_level_pressed"]
+[connection signal="go_to_level" from="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox/Cat1" to="." method="_go_to_level_pressed"]
+[connection signal="go_to_level" from="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox/Cat2" to="." method="_go_to_level_pressed"]
+[connection signal="go_to_level" from="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox/Cat3" to="." method="_go_to_level_pressed"]
+[connection signal="go_to_level" from="LevelSelection/OrderVBox/ScrollContainer/MarginContainer/LevelsVBox/Cat4" to="." method="_go_to_level_pressed"]
+[connection signal="pressed" from="LevelSelection/OrderVBox/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="LevelSelection/OrderVBox/HBoxContainer/Hide" to="." method="_on_hide_pressed"]
